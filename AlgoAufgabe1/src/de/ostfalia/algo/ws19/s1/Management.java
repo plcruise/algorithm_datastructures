@@ -9,7 +9,7 @@ public class Management implements IManagement{
 	
 	
 	public Management () {
-		
+		//createsNewManagementObject
 	}
 	
 	public Management(String[] toManage) {
