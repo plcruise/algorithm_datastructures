@@ -10,8 +10,7 @@ public class Member implements IMember{
 	private LocalDate birthday;
 	private Gender gen;	
 	private KindOfSport sports;
-	private Member next;
-	private static Member last = null;
+	
 	
 	public Member(String string) {
 		
@@ -27,15 +26,23 @@ public class Member implements IMember{
 		gen = Gender.valueOf(string[3].replace(" ", ""));
 		sports= KindOfSport.valueOf(string[4].replace(" ", ""));
 		key=this.createKey();
-		next=last;
-		last=this;
-		
+	
 	}
-	@Override
+	
 	
 	private  long createKey() {
-		String schluessel = "";
-		Parse.Longschluessel;
+		long schluessel = 0 ;
+		schluessel+=name.charAt(0)-'A'+1;
+		schluessel*=100;
+		schluessel+=prename.charAt(0);
+		schluessel*=100;
+		schluessel+=birthday.getDayOfMonth();
+		schluessel*=100;
+		schluessel+=birthday.getMonthValue();
+		schluessel*=100;
+		schluessel+=(birthday.getYear()%100);
+		return schluessel;
+		
 	}
 	public int compareTo(IMember o) {
 		// TODO Auto-generated method stub
