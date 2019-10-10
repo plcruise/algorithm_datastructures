@@ -65,14 +65,13 @@ public class Management implements IManagement {
 
 	@Override
 	public IMember search(String name, String firstName) {
-		// TODO Auto-generated method stub
-		return null;
+		return memberList.search(name, firstName);
 	}
 
 	@Override
 	public int size(KindOfSport kindOfSport) {
-		return memberList.getSizeOfSport(kindOfSport);		
-		
+		return memberList.getSizeOfSport(kindOfSport);
+
 	}
 
 	@Override

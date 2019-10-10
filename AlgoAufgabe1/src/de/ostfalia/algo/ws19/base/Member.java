@@ -94,5 +94,8 @@ public class Member implements IMember {
 		// TODO Auto-generated method stub
 		return sports;
 	}
+	public String toString() {
+		return ""+ key + prename + name + birthday+ gen+ sports;
+	}
 
 }

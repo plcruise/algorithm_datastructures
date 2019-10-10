@@ -40,17 +40,18 @@ public class ChainedList {
 
 	public IMember search(long key) {
 		Node n = head;
-		if (n == null) {
-			return null;
-		}
+
 		while (n != null && n.getData().getKey() != key) {
 			n = n.next;
+		}
+		if (n == null) {
+			return null;
 		}
 		return n.getData();
 	}
 
 	public void insert(IMember memb) {
-		Node n = new Node(memb);
+		new Node(memb);
 
 	}
 
@@ -64,6 +65,18 @@ public class ChainedList {
 			n = n.getNext();
 		}
 		return counter;
+	}
+
+	public IMember search(String name, String firstName) {
+		Node n = head;
+
+		while (n != null && !(n.getData().getName().equals(name) && n.getData().getFirstName().equals(firstName))) {
+			n = n.next;
+		}
+		if (n == null) {
+			return null;
+		}
+		return n.getData();
 	}
 
 	public int getSize() {
