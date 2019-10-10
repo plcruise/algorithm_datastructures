@@ -39,7 +39,14 @@ public class ChainedList {
 	}
 
 	public IMember search(long key) {
-
+		Node n = head;
+		if (n == null) {
+			return null;
+		}
+		while (n != null && n.getData().getKey() != key) {
+			n = n.next;
+		}
+		return n.getData();
 	}
 
 	public void insert(IMember memb) {
@@ -47,7 +54,17 @@ public class ChainedList {
 
 	}
 
-	
+	public int getSizeOfSport(KindOfSport sport) {
+		Node n = head;
+		int counter = 0;
+		while (n != null) {
+			if (n.getData().getKindOfSport().equals(sport)) {
+				counter++;
+			}
+			n = n.getNext();
+		}
+		return counter;
+	}
 
 	public int getSize() {
 		return size;

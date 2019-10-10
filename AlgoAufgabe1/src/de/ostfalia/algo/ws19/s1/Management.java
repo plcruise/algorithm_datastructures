@@ -39,14 +39,14 @@ public class Management implements IManagement {
 				insert(new Member(line));
 
 		} while (line != null);
-
+		bfr.close();
 	}
 
 	@Override
 	public int size() {
-	
+
 		return memberList.getSize();
-		
+
 	}
 
 	@Override
@@ -71,8 +71,8 @@ public class Management implements IManagement {
 
 	@Override
 	public int size(KindOfSport kindOfSport) {
-		// TODO Auto-generated method stub
-		return 0;
+		return memberList.getSizeOfSport(kindOfSport);		
+		
 	}
 
 	@Override
