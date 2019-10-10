@@ -34,7 +34,7 @@ public class Member implements IMember{
 		long schluessel = 0 ;
 		schluessel+=name.charAt(0)-'A'+1;
 		schluessel*=100;
-		schluessel+=prename.charAt(0);
+		schluessel+=prename.charAt(0)-'A'+1;
 		schluessel*=100;
 		schluessel+=birthday.getDayOfMonth();
 		schluessel*=100;
@@ -51,38 +51,36 @@ public class Member implements IMember{
 
 	@Override
 	public long getKey() {
-		// TODO Auto-generated method stub
-		return 0;
+		return key;	
 	}
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return name;
 	}
 
 	@Override
 	public String getFirstName() {
 		// TODO Auto-generated method stub
-		return null;
+		return prename;
 	}
 
 	@Override
 	public Gender getGender() {
 		// TODO Auto-generated method stub
-		return null;
+		return gen;
 	}
 
 	@Override
 	public LocalDate getDate() {
 		// TODO Auto-generated method stub
-		return null;
+		return birthday;
 	}
 
 	@Override
 	public KindOfSport getKindOfSport() {
 		// TODO Auto-generated method stub
-		return null;
+		return sports;
 	}
 
 }
