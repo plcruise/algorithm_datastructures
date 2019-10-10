@@ -76,14 +76,15 @@ public class Management implements IManagement {
 
 	@Override
 	public IMember[] discipline(KindOfSport kindOfSport) {
-		// TODO Auto-generated method stub
-		return null;
+		int disciplineCount = size(kindOfSport);
+		IMember[] members = memberList.searchDisciplineMembers(kindOfSport, disciplineCount);
+		return members;
 	}
 
 	@Override
 	public IMember[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return memberList.toArray();
 	}
 
 	@Override

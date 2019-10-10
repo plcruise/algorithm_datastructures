@@ -86,4 +86,33 @@ public class ChainedList {
 	public void setSize(int size) {
 		this.size = size;
 	}
+
+	public IMember[] searchDisciplineMembers(KindOfSport sport, int n) {
+		IMember[] members = new Member[n];
+		int i = 0;
+		Node m = head;
+
+		while (i < n) {
+			if (m.getData().getKindOfSport().equals(sport)) {
+				members[i] = m.getData();
+				i++;
+			}
+			m = m.getNext();
+		}
+
+		return members;
+	}
+
+	public IMember[] toArray() {
+		IMember[] array = new Member[getSize()];
+		int counter = 0;
+		Node n = head;
+
+		while (n != null) {
+			array[counter] = n.getData();
+			n = n.next;
+		}
+		return array;
+	}
+
 }
