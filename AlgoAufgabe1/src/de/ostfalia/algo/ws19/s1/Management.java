@@ -1,41 +1,66 @@
 package de.ostfalia.algo.ws19.s1;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import de.ostfalia.algo.ws19.base.ChainedList;
 import de.ostfalia.algo.ws19.base.IManagement;
 import de.ostfalia.algo.ws19.base.IMember;
 import de.ostfalia.algo.ws19.base.KindOfSport;
+import de.ostfalia.algo.ws19.base.Member;
 
-public class Management implements IManagement{
+public class Management implements IManagement {
 
-	
-	
-	public Management () {
-		//createsNewManagementObject
-	}
-	
-	public Management(String[] toManage) {
-		
+	private ChainedList memberList;
+
+	public Management() {
+		memberList = new ChainedList();
 	}
 
-	public Management(String fileName) {
-		// TODO Auto-generated constructor stub
+	public Management(String[] copyOf) {
+		memberList = new ChainedList();
+		for (String str : copyOf) {
+
+			insert(new Member(str));
+		}
+
+	}
+
+	public Management(String fileName) throws IOException {
+
+		FileReader flr = new FileReader(fileName);
+		BufferedReader bfr = new BufferedReader(flr);
+		String line;
+		do {
+			line = bfr.readLine();
+			if (line != null)
+				insert(new Member(line));
+
+		} while (line != null);
+
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+	
+		return memberList.getSize();
+		
 	}
 
 	@Override
 	public void insert(IMember member) {
+		memberList.insert(member);
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public IMember search(long key) {
 		// TODO Auto-generated method stub
-		return null;
+		return memberList.search(key);
+
 	}
 
 	@Override
