@@ -14,7 +14,7 @@ import de.ostfalia.algo.ws19.base.Member;
 public class Management implements IManagement {
 
 	private ChainedList memberList;
-
+private int operationCount=0;
 	public Management() {
 		memberList = new ChainedList();
 	}
@@ -65,7 +65,11 @@ public class Management implements IManagement {
 
 	@Override
 	public IMember search(String name, String firstName) {
-		return memberList.search(name, firstName);
+		IMember result=memberList.search(name, firstName);
+		
+		
+		return result;
+		
 	}
 
 	@Override
@@ -89,7 +93,9 @@ public class Management implements IManagement {
 
 	@Override
 	public int numberOfOperations() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return memberList.getOperationsCount();
 	}
+
+
 }

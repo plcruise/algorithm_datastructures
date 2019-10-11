@@ -47,16 +47,24 @@ public class Member implements IMember {
 
 	}
 
-	/*
-	 * Vergleicht ob zwei Objekte die das Interface IMember implementieren der
-	 * gleichen Klasse angehören.
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 * Vergleicht die Keys des aufrufenden Objekts mit dem Key des übergebenen Objekts.
+	 * gibt -1 zurück, wenn der Key des aufrufenden Objekts kleiner als der des übergebenen Objekts ist
+	 * gibt 0 zurück, wenn beide Keys identisch sind
+	 * gibt 1 zurück, wenn der Key des aufrufenden Objekts größer als der des übergebenen Objekts ist.
+	 *
 	 */
 	public int compareTo(IMember o) {
-		
-			if (this.getClass().getTypeName().equals(o.getClass().getTypeName())) {
-				return 0;
-			}
-		
+
+		if (getKey() < o.getKey()) {
+			return -1;
+		} else if (getKey() == o.getKey()) {
+			return 0;
+		}
+
 		return 1;
 
 	}
@@ -66,6 +74,7 @@ public class Member implements IMember {
 		return key;
 	}
 
+	
 	@Override
 	public String getName() {
 		return name;
@@ -94,8 +103,9 @@ public class Member implements IMember {
 		// TODO Auto-generated method stub
 		return sports;
 	}
+
 	public String toString() {
-		return ""+ key + prename + name + birthday+ gen+ sports;
+		return "" + key+", " + name+", " + prename +", "+ birthday+", " + gen +", "+ sports;
 	}
 
 }

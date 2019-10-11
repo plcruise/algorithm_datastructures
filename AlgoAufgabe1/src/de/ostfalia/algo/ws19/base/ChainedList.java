@@ -3,6 +3,7 @@ package de.ostfalia.algo.ws19.base;
 public class ChainedList {
 	private Node head;
 	private int size = 0;
+	private int operationCount;
 
 	private class Node {
 
@@ -113,6 +114,10 @@ public class ChainedList {
 			n = n.next;
 		}
 		return array;
+	}
+
+	public int getOperationsCount( ) {
+		return operationCount;
 	}
 
 }
