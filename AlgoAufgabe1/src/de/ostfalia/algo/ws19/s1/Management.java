@@ -14,15 +14,17 @@ import de.ostfalia.algo.ws19.base.Member;
 public class Management implements IManagement {
 
 	private ChainedList memberList;
-private int operationCount=0;
+	private int operationCount = 0;
+
 	public Management() {
 		memberList = new ChainedList();
 	}
 
 	public Management(String[] copyOf) {
+		operationCount = 0;
 		memberList = new ChainedList();
 		for (String str : copyOf) {
-
+			operationCount++;
 			insert(new Member(str));
 		}
 
@@ -65,11 +67,10 @@ private int operationCount=0;
 
 	@Override
 	public IMember search(String name, String firstName) {
-		IMember result=memberList.search(name, firstName);
-		
-		
+		IMember result = memberList.search(name, firstName);
+		setOperationCount(memberList.getOperationsCount());
 		return result;
-		
+
 	}
 
 	@Override
@@ -93,9 +94,16 @@ private int operationCount=0;
 
 	@Override
 	public int numberOfOperations() {
-		
-		return memberList.getOperationsCount();
+
+		return getOperationCount();
 	}
 
+	public int getOperationCount() {
+		return operationCount;
+	}
+
+	public void setOperationCount(int operationCount) {
+		this.operationCount = operationCount;
+	}
 
 }

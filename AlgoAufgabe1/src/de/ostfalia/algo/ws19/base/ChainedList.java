@@ -41,25 +41,33 @@ public class ChainedList {
 
 	public IMember search(long key) {
 		Node n = head;
+		operationCount=0;
 
 		while (n != null && n.getData().getKey() != key) {
 			n = n.next;
+			operationCount++;
 		}
 		if (n == null) {
+			operationCount++;
 			return null;
 		}
 		return n.getData();
 	}
 
 	public void insert(IMember memb) {
+		operationCount = 0;
 		new Node(memb);
+		operationCount++;
 
 	}
 
 	public int getSizeOfSport(KindOfSport sport) {
 		Node n = head;
+		operationCount=0;
+
 		int counter = 0;
 		while (n != null) {
+			operationCount++;
 			if (n.getData().getKindOfSport().equals(sport)) {
 				counter++;
 			}
@@ -70,11 +78,15 @@ public class ChainedList {
 
 	public IMember search(String name, String firstName) {
 		Node n = head;
+		operationCount=0;
 
 		while (n != null && !(n.getData().getName().equals(name) && n.getData().getFirstName().equals(firstName))) {
 			n = n.next;
+			operationCount++;
+
 		}
 		if (n == null) {
+			operationCount++;
 			return null;
 		}
 		return n.getData();
@@ -91,6 +103,8 @@ public class ChainedList {
 	public IMember[] searchDisciplineMembers(KindOfSport sport, int n) {
 		IMember[] members = new Member[n];
 		int i = 0;
+		operationCount=0;
+
 		Node m = head;
 
 		while (i < n) {
@@ -98,6 +112,7 @@ public class ChainedList {
 				members[i] = m.getData();
 				i++;
 			}
+			operationCount++;
 			m = m.getNext();
 		}
 
@@ -116,7 +131,7 @@ public class ChainedList {
 		return array;
 	}
 
-	public int getOperationsCount( ) {
+	public int getOperationsCount() {
 		return operationCount;
 	}
 
