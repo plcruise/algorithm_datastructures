@@ -41,8 +41,8 @@ public class Member implements IMember {
 		schluessel += birthday.getDayOfMonth();
 		schluessel *= 100;
 		schluessel += birthday.getMonthValue();
-		schluessel *= 100;
-		schluessel += (birthday.getYear() % 100);
+		schluessel *= 10000;
+		schluessel += (birthday.getYear());
 		return schluessel;
 
 	}

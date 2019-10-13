@@ -126,6 +126,7 @@ public class ChainedList {
 
 		while (n != null) {
 			array[counter] = n.getData();
+			counter++;
 			n = n.next;
 		}
 		return array;

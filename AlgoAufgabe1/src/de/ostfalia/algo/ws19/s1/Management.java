@@ -31,7 +31,8 @@ public class Management implements IManagement {
 	}
 
 	public Management(String fileName) throws IOException {
-
+		operationCount = 0;
+		memberList = new ChainedList();
 		FileReader flr = new FileReader(fileName);
 		BufferedReader bfr = new BufferedReader(flr);
 		String line;
@@ -39,6 +40,7 @@ public class Management implements IManagement {
 			line = bfr.readLine();
 			if (line != null)
 				insert(new Member(line));
+			operationCount++;
 
 		} while (line != null);
 		bfr.close();
