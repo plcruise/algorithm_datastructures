@@ -36,6 +36,7 @@ public class ChainedList {
 	}
 
 	public ChainedList() {
+		operationCount=0;
 		head = null;
 	}
 
@@ -129,6 +130,7 @@ public class ChainedList {
 			counter++;
 			n = n.next;
 		}
+		operationCount=counter;
 		return array;
 	}
 

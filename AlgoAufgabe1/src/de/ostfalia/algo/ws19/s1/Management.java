@@ -24,8 +24,8 @@ public class Management implements IManagement {
 		operationCount = 0;
 		memberList = new ChainedList();
 		for (String str : copyOf) {
-			operationCount++;
 			insert(new Member(str));
+			operationCount++;
 		}
 
 	}
@@ -97,7 +97,7 @@ public class Management implements IManagement {
 	@Override
 	public int numberOfOperations() {
 
-		return getOperationCount();
+		return memberList.getOperationsCount();
 	}
 
 	public int getOperationCount() {
